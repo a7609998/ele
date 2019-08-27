@@ -7,6 +7,16 @@
 // @ is an alias to /src
 
 export default {
-  name: 'home',
-}
+  name: "home",
+  data(){
+    return {
+    }
+  },
+ 
+};
 </script>
+<style lang="scss" scoped>
+  .home{
+    height: 100%;
+  }
+</style>

@@ -1,11 +1,6 @@
 <template>
   <div class="login">
-    <div class="title">
-      <div class="title-left">
-        <img src="../assets/login/goback.png" alt />
-      </div>
-      <div class="title-content">密码登录</div>
-    </div>
+    <Header :title='title'></Header>
     <div class="from">
       <div class="fromfirst"></div>
       <input
@@ -35,16 +30,22 @@
 </template>
 
 <script>
+import Header from "../components/header"
 import { captchas, login } from "../require/api";
 import { Toast } from 'mint-ui';
 export default {
   name: "login",
+  components:{
+    Header
+  },
   data() {
     return {
       imgurl: "",
       captcha_code: "",
       password: "",
-      username: ""
+      username: "",
+      title:'密码登录',
+      user_id:''
     };
   },
   mounted() {
@@ -69,13 +70,17 @@ export default {
         if (res.status == 0) {
           Toast({
             message: res.message,
-            iconClass: "icon icon-success"
+            iconClass: "iconfont icon-gantanhao"
           });
         } else {
           Toast({
             message: "登录成功",
-            iconClass: "icon icon-success"
-          });
+            iconClass: "iconfont icon-chenggong"
+          })
+          /setTimeout(()=>{
+            //  this.$router.push({ path:'/my',query  })
+             this.$router.push({ path:'/my' ,query:{user_id:res.user_id}});
+          },800);
         }
       });
     }
@@ -88,31 +93,6 @@ export default {
   height: 100%;
   overflow: hidden;
   background-color: #f5f5f5;
-  .title {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #3190e8;
-    font-size: 0.533333rem /* 40/75 */;
-    height: 1.226667rem /* 92/75 */;
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
-    position: fixed;
-    .title-left {
-      width: 0.373333rem /* 28/75 */;
-      height: 0.666667rem /* 50/75 */;
-      margin-left: 0.32rem /* 24/75 */;
-      position: absolute;
-      top: 0.266667rem /* 20/75 */;
-      left: 0;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
   .from {
     margin-top: 1.973333rem /* 148/75 */;
     input {
