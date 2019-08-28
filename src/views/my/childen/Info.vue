@@ -18,7 +18,7 @@
     <div class="infouser" @click="updauser">
       <div class="infouser-left">用户名</div>
       <div class="infouser-right">
-        <div class="mobile">{{this.infolist.username}}</div>
+        <div class="mobile">{{infolist.username}}</div>
         <span class="iconfont icon-fanhui goback"></span>
       </div>
     </div>
@@ -79,6 +79,11 @@ export default {
       }).then(res => {
         console.log(res);
         this.infolist = res;
+        // console.log(this.$route.query.username)
+        if (this.$route.query.username != null) {
+          this.infolist.username = this.$route.query.username;
+        //   console.log(this.infolist.username);
+        }
         // console.log(infolist)
       });
     },
