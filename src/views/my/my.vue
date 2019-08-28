@@ -1,9 +1,9 @@
 <template>
   <div class="my">
     <Header :title="title"></Header>
-    <div class="myinfo">
+    <div class="myinfo" @click="info">
       <div class="myimg">
-        <img src="../assets/img/default.jpg" alt />
+        <img src="../../assets/img/default.jpg" alt />
         <div class="my-right">
           <p>{{infolist.username}}</p>
           <p>{{infolist.mobile==""?'暂无绑定手机号':infolist.mobile}}</p>
@@ -74,17 +74,17 @@
   </div>
 </template>
 <script>
-import Header from "../components/header";
-import Footbar from "../components/footbar";
-import { user } from "../require/api";
+import Header from "../../components/header";
+import Footbar from "../../components/footbar";
+import { user } from "../../require/api";
 export default {
   name: "my",
   components: {
     Header,
     Footbar
   },
-  props:{
-    user_id:Object
+  props: {
+    user_id: Object
   },
   created() {
     this.init();
@@ -92,18 +92,23 @@ export default {
   data() {
     return {
       title: "我的",
-      infolist:{}
+      infolist: {}
     };
   },
   methods: {
+    // 初始化我的页面数据
     init() {
-        user({
-           user_id:this.user_id 
-        }).then(res=>{
-            console.log(res)
-            this.infolist=res
-            // console.log(infolist)
-        })
+      user({
+        user_id: this.user_id
+      }).then(res => {
+        console.log(res);
+        this.infolist = res;
+        // console.log(infolist)
+      });
+    },
+    // 点击跳转到我的信息
+    info() {
+        this.$router.push({ path:'/info' ,query:{user_id:this.infolist.user_id}});
     }
   }
 };
