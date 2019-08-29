@@ -73,6 +73,7 @@ export default {
             iconClass: "iconfont icon-gantanhao"
           });
         } else {
+           localStorage.setItem('id',res.user_id)
           Toast({
             message: "登录成功",
             iconClass: "iconfont icon-chenggong"

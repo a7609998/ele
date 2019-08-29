@@ -22,7 +22,7 @@
         <span class="iconfont icon-fanhui goback"></span>
       </div>
     </div>
-    <div class="infouser">
+    <div class="infouser" @click="adress">
       <div class="infouser-left">收货地址</div>
       <div class="infouser-right">
         <!-- <div class="mobile">17666166385</div> -->
@@ -82,7 +82,7 @@ export default {
         // console.log(this.$route.query.username)
         if (this.$route.query.username != null) {
           this.infolist.username = this.$route.query.username;
-        //   console.log(this.infolist.username);
+          //   console.log(this.infolist.username);
         }
         // console.log(infolist)
       });
@@ -109,6 +109,10 @@ export default {
     // 修改用户名
     updauser() {
       this.$router.push({ path: "/setusername" });
+    },
+    // 修改收货地址
+    adress(){
+       this.$router.push({ path:'/address' ,query:{user_id:this.infolist.user_id}});
     }
   }
 };

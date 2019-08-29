@@ -2,7 +2,7 @@
   <div class="header">
     <div class="title">
       <div class="title-left">
-        <img src="../assets/login/goback.png" alt />
+        <img src="../assets/login/goback.png" alt @click="back()" />
       </div>
       <div class="title-content">{{title}}</div>
     </div>
@@ -10,10 +10,23 @@
 </template>
 <script>
 export default {
-    props:{
-        title:String
+  props: {
+    title: String
+  },
+  methods: {
+    back() {
+      if (this.title == "编辑地址") {
+        this.$router.push({ path: "/info" });
+        return;
+      }
+      if (this.title == "账户信息") {
+        this.$router.push({ path: "/my" });
+        return;
+      }
+      this.$router.go(-1);
     }
-}
+  }
+};
 </script>
 <style lang="scss" scoped>
 .title {

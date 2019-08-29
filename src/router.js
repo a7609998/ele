@@ -44,6 +44,30 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/my/childen/children/Setusername.vue')
+    },
+    {
+      path: '/address',
+      name: 'address',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './views/my/childen/children/Address.vue')
+    },
+    {
+      path: '/newaddress',
+      name: 'newaddress',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './views/my/childen/children/Newaddress.vue')
+    },
+    {
+      path: '/addDetail',
+      name: 'addDetail',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './views/my/childen/children/AddDetail.vue')
     }
   ]
 })
