@@ -78,7 +78,7 @@ export default {
             message: "登录成功",
             iconClass: "iconfont icon-chenggong"
           })
-          /setTimeout(()=>{
+          setTimeout(()=>{
             //  this.$router.push({ path:'/my',query  })
              this.$router.push({ path:'/my' ,query:{user_id:res.user_id}});
           },800);

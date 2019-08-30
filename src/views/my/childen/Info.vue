@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="BindonAccount">账号绑定</div>
-    <div class="infouser">
+    <div class="infouser" @click="updatapwd">
       <div class="infouser-left">安全设置</div>
       <div class="infouser-right">
         <div class="mobile">修改</div>
@@ -113,6 +113,9 @@ export default {
     // 修改收货地址
     adress(){
        this.$router.push({ path:'/address' ,query:{user_id:this.infolist.user_id}});
+    },
+    updatapwd(){
+      this.$router.push({ path:'/forget',query:{user_id:this.infolist.user_id}});
     }
   }
 };

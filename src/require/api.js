@@ -13,7 +13,7 @@ export const addresses = options => get('v1/users/'+localStorage.getItem('id')+'
 
 export const newaddresses = options => post('v1/users/'+localStorage.getItem('id')+'/addresses', options);
 
-
+export const changepassword = options => post('v2/changepassword', options);
 
 
 // http://localhost:8000/v1/pois?type=nearby&keyword=%E9%87%91%E8%B0%B7%E5%9B%AD
