@@ -15,6 +15,10 @@ export const newaddresses = options => post('v1/users/'+localStorage.getItem('id
 
 export const changepassword = options => post('v2/changepassword', options);
 
+export const cities = options => get('/v1/cities', options);
+
+export const poit = options => get('/v1/pois', options);
+
 
 // http://localhost:8000/v1/pois?type=nearby&keyword=%E9%87%91%E8%B0%B7%E5%9B%AD
 // http://localhost:8080/v1/pois?type=nearby&keyword=%E9%87%91%E8%B0%B7%E5%9B%AD
